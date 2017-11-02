@@ -33,7 +33,7 @@ public class AddBook {
     public void printAllBooks() {
         for(Book book : books) {
             if(book != null) {
-//                System.out.println(book.getTitle() +  ); // how many copies of the book are there ?
+                System.out.println(book.getTitle() + book.getStockUnits());
             }
         }
     }
