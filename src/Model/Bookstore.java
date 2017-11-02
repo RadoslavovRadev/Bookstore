@@ -1,12 +1,17 @@
-public class AddBook {
+package Model;
 
-    private Book[] books;
+import java.util.HashSet;
 
-    public AddBook(int maxNumberOfBooks) {
-        books = new Book[maxNumberOfBooks];
+public class Bookstore {
+
+    private HashSet<Book1> book1HashSet;
+
+    /*
+    public Model.Bookstore(int maxNumberOfBooks) {
+        books = new Model.Book1[maxNumberOfBooks];
     }
 
-    public boolean addBook(Book book) {
+    public boolean addBook(Model.Book1 book) {
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {
                 books[i] = book;
@@ -19,8 +24,8 @@ public class AddBook {
 
 
 
-    public Book getBookByName(String title) {
-        for (Book book : books) {
+    public Model.Book1 getBookByName(String title) {
+        for (Model.Book1 book : books) {
             if (book != null && book.getTitle().equalsIgnoreCase(title)) {
                 return book;
             }
@@ -31,14 +36,14 @@ public class AddBook {
 
 
     public void printAllBooks() {
-        for(Book book : books) {
+        for(Model.Book1 book : books) {
             if(book != null) {
                 System.out.println(book.getTitle() + book.getStockUnits());
             }
         }
     }
 
-    public boolean buy(Book book) {
+    public boolean buy(Model.Book1 book) {
         if(book.getStockUnits() > 1) {
             book.setStockUnits(book.getStockUnits() - 1);
             return true;
@@ -46,5 +51,6 @@ public class AddBook {
 
         return false;
     }
+    */
 }
 

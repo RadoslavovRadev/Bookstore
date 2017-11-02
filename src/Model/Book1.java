@@ -1,15 +1,38 @@
-public class Book {
+package Model;
 
+import java.util.UUID;
+
+public class Book1 {
+
+
+    private UUID id;
     private String title;
     private String author;
     private double price;
     private String publishingHouse;
     private boolean isForeign;
+    private int stockUnits;
 
-    public Book() {
+    public Book1() {
+        setId(id);
+//        setTitle();
+//        setAuthor();
+//        setPrice();
+//        setPublishingHouse();
+//        setIsForeign();
+//        setStockUnits();
+
+        // add method to save the book in a file CSV
     }
 
-    private int stockUnits;
+    public UUID getId() {
+        return id;
+    }
+
+    private void setId(UUID id) {
+        id = UUID.randomUUID();
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -43,11 +66,11 @@ public class Book {
         this.publishingHouse = publishingHouse;
     }
 
-    public boolean isForeign() {
+    public boolean getIsForeign() {
         return isForeign;
     }
 
-    public void setForeign(boolean foreign) {
+    public void setIsForeign(boolean foreign) {
         isForeign = foreign;
     }
 
