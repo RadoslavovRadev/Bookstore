@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Book1 {
 
 
-    private UUID id;
+    private String id;
     private String title;
     private String author;
     private double price;
@@ -25,12 +25,12 @@ public class Book1 {
         // add method to save the book in a file CSV
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    private void setId(UUID id) {
-        id = UUID.randomUUID();
+    private void setId(String id) {
+        id = UUID.randomUUID().toString();
         this.id = id;
     }
 
@@ -39,6 +39,7 @@ public class Book1 {
     }
 
     public void setTitle(String title) {
+        title =
         this.title = title;
     }
 

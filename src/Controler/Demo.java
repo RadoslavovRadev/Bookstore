@@ -12,7 +12,6 @@ public class Demo {
 
 
         Book1 b1 = new Book1();
-
         System.out.println(b1.getId());
 
     }
