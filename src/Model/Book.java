@@ -1,8 +1,8 @@
 package Model;
 
-import java.util.UUID;
+import java.util.Random;
 
-public class Book1 {
+public class Book {
 
 
     private String id;
@@ -13,7 +13,7 @@ public class Book1 {
     private boolean isForeign;
     private int stockUnits;
 
-    public Book1() {
+    public Book() {
         setId(id);
 //        setTitle();
 //        setAuthor();
@@ -30,7 +30,10 @@ public class Book1 {
     }
 
     private void setId(String id) {
-        id = UUID.randomUUID().toString();
+        Random randomGenerator = new Random();
+        int randomNumber = randomGenerator.nextInt(999999);
+        // add a check to make sure the number is unique
+        id = "ID" + Integer.toString(randomNumber);
         this.id = id;
     }
 

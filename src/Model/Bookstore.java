@@ -4,14 +4,14 @@ import java.util.HashSet;
 
 public class Bookstore {
 
-    private HashSet<Book1> book1HashSet;
+    private HashSet<Book> BookHashSet;
 
     /*
     public Model.Bookstore(int maxNumberOfBooks) {
-        books = new Model.Book1[maxNumberOfBooks];
+        books = new Model.Book[maxNumberOfBooks];
     }
 
-    public boolean addBook(Model.Book1 book) {
+    public boolean addBook(Model.Book book) {
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {
                 books[i] = book;
@@ -24,8 +24,8 @@ public class Bookstore {
 
 
 
-    public Model.Book1 getBookByName(String title) {
-        for (Model.Book1 book : books) {
+    public Model.Book getBookByName(String title) {
+        for (Model.Book book : books) {
             if (book != null && book.getTitle().equalsIgnoreCase(title)) {
                 return book;
             }
@@ -36,14 +36,14 @@ public class Bookstore {
 
 
     public void printAllBooks() {
-        for(Model.Book1 book : books) {
+        for(Model.Book book : books) {
             if(book != null) {
                 System.out.println(book.getTitle() + book.getStockUnits());
             }
         }
     }
 
-    public boolean buy(Model.Book1 book) {
+    public boolean buy(Model.Book book) {
         if(book.getStockUnits() > 1) {
             book.setStockUnits(book.getStockUnits() - 1);
             return true;
