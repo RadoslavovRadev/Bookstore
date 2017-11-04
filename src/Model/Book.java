@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Book {
 
-
     private String id;
     private String title;
     private String author;
@@ -15,13 +14,6 @@ public class Book {
 
     public Book() {
         setId(id);
-//        setTitle();
-//        setAuthor();
-//        setPrice();
-//        setPublishingHouse();
-//        setIsForeign();
-//        setStockUnits();
-
         // add method to save the book in a file CSV
     }
 
@@ -42,7 +34,6 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        title =
         this.title = title;
     }
 
