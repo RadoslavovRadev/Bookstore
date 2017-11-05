@@ -13,6 +13,7 @@ public class Demo {
         menuFrame.setVisible(true);
 
         //bookHashset.init();
+        //haha
 
         Book b1 = new Book();
         System.out.println(b1.getId());
