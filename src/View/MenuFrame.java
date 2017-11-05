@@ -3,8 +3,6 @@ package View;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static Controler.Demo.refreshFrame;
-
 import Controler.Demo;
 import Model.Book;
 
@@ -36,6 +34,14 @@ public class MenuFrame extends JFrame implements ActionListener{
     private JButton addBookButton;
     private JButton cancelButton;
     private Book book = new Book();
+
+    // Search Book By Title Page
+    // Search Book By Title Page
+    private JLabel SearchBookByTitlePageTitleLabel;
+    private JLabel SearchBookTitleLabel;
+    private JTextField SearchBookTitleField;
+    private JButton searchBookButton;
+    private JButton backButton;
 
     public MenuFrame() {
         super("Bookstore");
@@ -124,6 +130,24 @@ public class MenuFrame extends JFrame implements ActionListener{
         cancelButton.setBounds(250, 300,150,50);
         cancelButton.addActionListener(this);
 
+
+        // Search By Title Page
+        SearchBookByTitlePageTitleLabel = new JLabel("Search for a book by its title");
+        SearchBookByTitlePageTitleLabel.setBounds(220, 5, 80, 50);
+
+        SearchBookTitleLabel = new JLabel("Enter the title:");
+        SearchBookTitleLabel.setBounds(40, 50, 80, 20);
+
+        SearchBookTitleField = new JTextField();
+        SearchBookTitleField.setBounds(120, 50, 310, 20);
+
+        searchBookButton = new JButton("Search for the book");
+        searchBookButton.setBounds(80, 300, 150, 50);
+        searchBookButton.addActionListener(this);
+
+        backButton = new JButton("Back");
+        backButton.setBounds(250, 300, 150, 50);
+        backButton.addActionListener(this);
     }
 
     //@Override
@@ -140,6 +164,12 @@ public class MenuFrame extends JFrame implements ActionListener{
             addBookPageSaveInput();
         } else if (e.getSource() == cancelButton) {
             removeAddBookPage();
+            showMenuPage();
+        } else if (e.getSource() == BookSearchByTitleButton) {
+            removeMenuPage();
+            showSearchBookByTitlePage();
+        } else if (e.getSource() == backButton) {
+            removeSearchBookByTitlePage();
             showMenuPage();
         }
     }
@@ -198,6 +228,21 @@ public class MenuFrame extends JFrame implements ActionListener{
         remove(isForeignCheckBox);
         remove(addBookButton);
         remove(cancelButton);
+        Demo.refreshFrame();
+    }
+
+    private void showSearchBookByTitlePage() {
+        SearchBookByTitlePageTitleLabel.setText("Search for a book by its title:");
+        add(SearchBookByTitlePageTitleLabel);
+        add(SearchBookTitleLabel);
+        add(SearchBookTitleField);
+
+    }
+
+    private void removeSearchBookByTitlePage() {
+        remove(SearchBookByTitlePageTitleLabel);
+        remove(SearchBookTitleLabel);
+        remove(SearchBookTitleField);
         Demo.refreshFrame();
     }
 
