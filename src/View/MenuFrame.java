@@ -133,7 +133,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 
         // Search By Title Page
         SearchBookByTitlePageTitleLabel = new JLabel("Search for a book by its title");
-        SearchBookByTitlePageTitleLabel.setBounds(220, 5, 80, 50);
+        SearchBookByTitlePageTitleLabel.setBounds(180, 5, 400, 50);
 
         SearchBookTitleLabel = new JLabel("Enter the title:");
         SearchBookTitleLabel.setBounds(40, 50, 80, 20);
@@ -236,13 +236,16 @@ public class MenuFrame extends JFrame implements ActionListener{
         add(SearchBookByTitlePageTitleLabel);
         add(SearchBookTitleLabel);
         add(SearchBookTitleField);
-
+        add(searchBookButton);
+        add(backButton);
     }
 
     private void removeSearchBookByTitlePage() {
         remove(SearchBookByTitlePageTitleLabel);
         remove(SearchBookTitleLabel);
         remove(SearchBookTitleField);
+        remove(searchBookButton);
+        remove(backButton);
         Demo.refreshFrame();
     }
 
