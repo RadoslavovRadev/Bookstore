@@ -36,12 +36,30 @@ public class MenuFrame extends JFrame implements ActionListener{
     private Book book = new Book();
 
     // Search Book By Title Page
-    // Search Book By Title Page
     private JLabel SearchBookByTitlePageTitleLabel;
     private JLabel SearchBookTitleLabel;
     private JTextField SearchBookTitleField;
     private JButton searchBookButton;
     private JButton backButton;
+
+    // Book List
+    private JLabel BookListPageTitleLabel;
+    private JButton previousButton;
+
+    //Sell A Book
+    private JLabel SellBookPageTitleLabel;
+    private JLabel SoldBookTitleLabel;
+    private JTextField SoldBookTitleField;
+    private JButton soldBookButton;
+    private JButton earlierPageButton;
+
+    //Delete A Book
+    private JLabel DeleteBookPageTitleLabel;
+    private JLabel DeletedBookTitleLabel;
+    private JTextField DeletedBookTitleField;
+    private JButton deletedBookButton;
+    private JButton backMenuButton;
+
 
     public MenuFrame() {
         super("Bookstore");
@@ -148,6 +166,53 @@ public class MenuFrame extends JFrame implements ActionListener{
         backButton = new JButton("Back");
         backButton.setBounds(250, 300, 150, 50);
         backButton.addActionListener(this);
+
+        // Book List Page
+        BookListPageTitleLabel = new JLabel("Book list and in stock books");
+        BookListPageTitleLabel.setBounds(180, 5, 400, 50);
+
+        previousButton = new JButton("Back to main menu");
+        previousButton.setBounds(170, 400, 150, 50);
+        previousButton.addActionListener(this);
+
+        // Sell A Book Page
+        SellBookPageTitleLabel = new JLabel("Selling book field");
+        SellBookPageTitleLabel.setBounds(180, 5, 400, 50);
+
+        SoldBookTitleLabel = new JLabel("Sold book title:");
+        SoldBookTitleLabel.setBounds(10,50,100,20);
+
+        SoldBookTitleField = new JTextField();
+        SoldBookTitleField.setBounds(120, 50, 310, 20);
+
+        soldBookButton = new JButton("Sell the book !");
+        soldBookButton.setBounds(80,300,150,50);
+        soldBookButton.addActionListener(this);
+
+        earlierPageButton = new JButton ("Back to main menu");
+        earlierPageButton.setBounds(250, 300, 150, 50);
+        earlierPageButton.addActionListener(this);
+
+        //Delete A Book Page
+        DeleteBookPageTitleLabel = new JLabel("Deleting book field");
+        DeleteBookPageTitleLabel.setBounds(180, 5, 400, 50);
+
+        DeletedBookTitleLabel = new JLabel("Title of the book to delete:");
+        DeletedBookTitleLabel.setBounds(10, 50, 150, 20);
+
+        DeletedBookTitleField = new JTextField();
+        DeletedBookTitleField.setBounds(160, 50, 310, 20);
+
+        deletedBookButton = new JButton("Delete the book");
+        deletedBookButton.setBounds(80,300,150,50);
+        deletedBookButton.addActionListener(this);
+
+        backMenuButton = new JButton ("Back to main menu");
+        backMenuButton.setBounds(250, 300, 150, 50);
+        backMenuButton.addActionListener(this);
+
+
+
     }
 
     //@Override
@@ -155,7 +220,7 @@ public class MenuFrame extends JFrame implements ActionListener{
         System.out.println("click");
 
         //finding out which button has been pressed
-        if (e.getSource() == addNewBookButton){
+        if (e.getSource() == addNewBookButton) {
             removeMenuPage();
             showAddBookPage();
         } else if (e.getSource() == ExitButton) {
@@ -168,8 +233,28 @@ public class MenuFrame extends JFrame implements ActionListener{
         } else if (e.getSource() == BookSearchByTitleButton) {
             removeMenuPage();
             showSearchBookByTitlePage();
+        } else if (e.getSource() == searchBookButton) {
+
         } else if (e.getSource() == backButton) {
             removeSearchBookByTitlePage();
+            showMenuPage();
+        } else if (e.getSource() == AllBooksListButton) {
+            removeMenuPage();
+            showBookListPageTitlelabel();
+        } else if (e.getSource() == previousButton) {
+            removeBookListPageTitleLabel();
+            showMenuPage();
+        } else if (e.getSource() == SellBookButton ) {
+            removeMenuPage();
+            showSellBookPageTitlelabel();
+        } else if (e.getSource() == earlierPageButton) {
+            removeSellBookPageTitlelabel();
+            showMenuPage();
+        } else if (e.getSource() == DeleteBookButton) {
+            removeMenuPage();
+            showDeleteBookPageTitleLabel();
+        } else if (e.getSource() == backMenuButton) {
+            removeDeleteBookPageTitleLabel();
             showMenuPage();
         }
     }
@@ -246,6 +331,55 @@ public class MenuFrame extends JFrame implements ActionListener{
         remove(SearchBookTitleField);
         remove(searchBookButton);
         remove(backButton);
+        Demo.refreshFrame();
+    }
+
+    private void showBookListPageTitlelabel() {
+        BookListPageTitleLabel.setText("Book list and in stock books");
+        add(BookListPageTitleLabel);
+        add(previousButton);
+    }
+
+    private void removeBookListPageTitleLabel() {
+        remove(BookListPageTitleLabel);
+        remove(previousButton);
+        Demo.refreshFrame();
+
+    }
+
+    private void showSellBookPageTitlelabel() {
+        SellBookPageTitleLabel.setText("Selling book field");
+        add(SellBookPageTitleLabel);
+        add(SoldBookTitleLabel);
+        add(SoldBookTitleField);
+        add(soldBookButton);
+        add(earlierPageButton);
+    }
+
+    private void removeSellBookPageTitlelabel() {
+        remove(SellBookPageTitleLabel);
+        remove(SoldBookTitleLabel);
+        remove(SoldBookTitleField);
+        remove(soldBookButton);
+        remove(earlierPageButton);
+        Demo.refreshFrame();
+    }
+
+    private void showDeleteBookPageTitleLabel() {
+        DeleteBookPageTitleLabel.setText("Deleting book field");
+        add(DeleteBookPageTitleLabel);
+        add(DeletedBookTitleLabel);
+        add(DeletedBookTitleField);
+        add(deletedBookButton);
+        add(backMenuButton);
+    }
+
+    private void removeDeleteBookPageTitleLabel() {
+        remove(DeleteBookPageTitleLabel);
+        remove(DeletedBookTitleLabel);
+        remove(DeletedBookTitleField);
+        remove(deletedBookButton);
+        remove(backMenuButton);
         Demo.refreshFrame();
     }
 
